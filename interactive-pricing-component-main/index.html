@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+
+  
+
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+ 
+</head>
+
+<body>
+
+<!--BACKGROUND-->
+  <div class="background">
+    <img src="./images/pattern-circles.svg" alt="circles" class="circles">
+    <img src="./images/bg-pattern.svg" alt="bg-pattern" class="bg-pattern">
+  </div>
+
+
+
+<!--HEADLINE-->
+  <div class="headline">
+    <h1>Simple, traffic-based pricing</h1>
+    <h2>Sign-up for our 30-day trial. No credit card required. </h2>
+  </div>
+  
+
+
+  <div class="container">
+<!--FIRST LINE-->
+    <div class="first-line">
+      <div class="pageviews">
+        <p><span id="num-page-views">10k</span> Pageviews</p>
+      </div>
+    
+      <div class="price-month">
+        <p><span class="dollar-value">$</span><span id="money">8</span><span class="dollar-value">.00</span></span>/month</p>
+      </div>  
+    </div>
+
+
+
+<!--SECOND LINE-->
+<div class="slider-container" >
+  <input id="slider" type="range" value="1" min="1" max="5">
+</div>
+    
+
+
+
+<!--THIRD LINE-->
+    <div class="third-line">
+
+      <div class="monthly-billing">
+        <p>Monthly Billing</p>
+      </div>
+
+      <div class="switch-container">
+        <label class="switch">
+        <input type="checkbox" id="checkbox"/>
+        <div class="switch-btn"></div>
+        </label>
+      </div>
+
+      <div class="yearly-billing">
+        <p>Yearly Billing</p>
+      </div>
+
+      <div class="discount">
+        <p>25% discount</p> 
+      </div>
+
+    </div>
+
+
+
+<!--LOWER SECTION-->
+    <hr>
+    <div class="lower-section">
+     <div>
+        <ul class="checklist">
+          <li>Unlimited websites</li>
+          <li>100% data ownership</li>
+          <li>Email reports</li>
+      </ul> 
+      </div>
+      <div>
+        <button class="start-btn">Start my trial</button>
+      </div>
+    </div>
+    
+
+
+<!--FOOTER-->
+  </div>
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Brian Ford</a>.
+  </footer>
+  
+  <script src="script.js"></script>
+
+</body>
+</html>
+
