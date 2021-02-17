@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Frontend Mentor | Todo app</title>
+
+</head>
+
+  <body>
+
+  <!-- BACKGROUND -->
+  <div class="background">
+    <img id = "background-image" src="./images/bg-desktop-light.jpg" alt="mountains">
+  </div>
+
+  <!-- ITEMS BOX -->
+  <div class = "container">
+    <!-- BANNER & TOGGLE -->
+    <div class = "banner">
+      <h1 class = "logo">Todo</h1>
+      <img id = "theme-toggle" src="./images/icon-moon.svg" alt="sun-moon" onclick = "themeToggle()">
+      <!--
+        <img id = "theme-toggle" class= "sun" src="./images/icon-sun.svg" alt="sun">
+      -->
+    </div>
+
+    <!-- INPUT AREA -->
+    <input type="text" id="input-area">
+
+    <!-- ENTRIES & FILTERS -->
+    <div class="entries-line-filters">
+
+        <!--Items-->
+      <ul id="items-line">
+        <!-- 
+          <li class=" draggable new-item" draggable="true">
+            <input type="checkbox" class="checkbox">
+            <p class="items-text">Items go here</p>
+            <img src="./images/icon-cross.svg" class="exit-btn" alt="exit button">
+          </li>
+        -->
+      </ul>
+      
+
+        <!-- FILTERS -->
+      <div id="bottom-row">
+        <h1 class="items-left">Nothing To Do!</h1>
+        <h1>
+          <span class="all">All</span>
+          <span class="active">Active</span> 
+          <span class="completed">Completed</span>
+        </h1>
+        <h1>
+          <span class="clear-completed">Clear Completed</span>
+        </h1>   
+        
+      </div>
+    </div>
+
+      <!-- INSTRUCTIONS -->
+
+  <h1 class = "instructions">Drag and drop to reorder list</h1>
+
+
+  <script src="script.js"></script>
+
+  </body>
+
+</html>
