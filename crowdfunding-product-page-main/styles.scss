@@ -1,0 +1,624 @@
+@import 'fonts-styles.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+//BACKGROUND
+body {
+    background-color: hsl(0,0%,98%);
+    height: 100vh;
+    font-family: $font;
+    font-weight: $thin;
+    font-size: 16px;
+
+    #background-image {
+        position: absolute;
+        z-index: -5;
+        width: 100%;
+    }
+}
+
+// NAV BAR
+#navbar {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+
+    &__links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            color: white;
+            font-weight: $med;
+            font-size: 16px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    }
+}
+
+//ENTIRE CONTAINER
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 14%;
+    padding-bottom: 14%;
+
+    #box {
+        @include box;
+        
+        //HEADER BOX
+        .header {
+            height: 15rem;
+            text-align: center;
+            position: relative;
+
+            .brand-logo {
+                position: relative;
+                top: -12%;
+            }
+
+            &__title {
+                font-size: 24px;
+                letter-spacing: 0.25px;
+                transform: translate(0px, -13px);
+            }
+
+            &__description {
+                font-size: 14px;
+                letter-spacing: 0.5px;
+                font-weight: $thin;
+                color: $dark-gray;
+                padding-bottom: 5px;
+            }
+
+            .header-btn {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 40px;
+                transform: translate(0px, 40px);
+
+                &__backthisprojectBtn {
+                    @include button;
+                }
+
+                &__bookmarkBtn {
+                    @include button;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: rgb(231, 231, 231);
+                    color: $dark-gray;
+                    transform: scale(0.85);
+                    margin-right: -6px;
+
+                    .bookmark-text {
+                        margin-right: 35px;
+                    }
+
+                    & img {
+                        opacity: 0.70;
+                        height: 50px;
+                        width: 50px;
+                    }
+                    
+                    &:active {
+                        transform: scale(0.85);
+                        background-color: rgb(231, 231, 231);
+                    }
+                }
+            }
+        }
+
+        //CAMPAIN DETAILS BOX
+        .campaign {
+            height: 10.5rem;
+            display: flex;
+            flex-direction: column;
+        
+            &__details {
+                display: flex;
+                justify-content: space-between;
+                padding: 35px;
+                margin-left: 0.75rem;
+                margin-right: 125px;
+            }
+
+            .first-line-big {
+                font-size: 24px;
+                font-weight: $bold;
+                
+            }
+
+            .second-line-small {
+                font-size: 15px;
+                color: $dark-gray;
+                margin-top: 8px;
+            }
+
+            hr {
+                border: 1px solid rgba(0,0,0,0.09);
+                height: 110%;
+                transform: translateY(-5px);
+            }
+
+            .progress {
+                background-color: rgb(231, 231, 231);
+                margin: 0 auto;
+                width: 35rem;
+                height: 12px;
+                border-radius: 25px;
+
+                .progress-done {
+                    background-color: $moderate-cyan;
+                    height: 100%;
+                    width: 0%;
+                    border-radius: 25px;
+                }
+            }
+
+            .goal-reached {
+                position: absolute;
+                display: none;
+                font-size: 20px;
+                font-weight: bold;
+                color: $dark-cyan;
+                transform: translate(470px, 102px);
+                z-index: 10;
+            }
+        }
+
+        //ABOUT & PLEDGES SECTION
+        #about-pledge-container {
+            margin: 0 40px 40px 40px;
+
+            .headline {
+                font-size: 17px;
+                font-weight: $bold;
+                letter-spacing: 0.5px;
+                margin: 40px 0 30px 0;
+            }
+
+            .about-text {
+                color: $dark-gray;
+                line-height: 25px;
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .pledge-box {
+                @include pledge-box;
+            }
+        }
+    }     
+}
+
+
+//MODALS
+
+#overlay {
+    @include modal-open;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    pointer-events: all;
+}
+
+.backproj-modal {
+    //display: none;
+    @include modal-box;
+    width: 40rem;
+    padding: 40px 30px;
+    @include modal-open;
+
+    .first-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .close {
+            font-size: 30px;
+            background: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transform: translateY(-20px);
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+    }
+
+    &__text {
+        color: $dark-gray;
+        font-size: 14px;
+        margin: 20px 0 30px 0;
+    }
+
+    &__box {
+        border: 1px solid rgba(0,0,0,0.5);
+        //border: 2px solid $moderate-cyan;
+        border-radius: 8px;
+        margin: 15px 0;
+        cursor: pointer;
+
+        &:hover {
+            color: $moderate-cyan;
+        }
+    }
+
+    .backproj-firstline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__toggle {
+            margin: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            border: 1.25px solid rgba(0,0,0,0.20);
+            outline: none;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+                display: absolute;
+                content: "";
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                position: absolute;
+                transform: translate(-5px, -5px);
+                background-color: $moderate-cyan;
+            }
+        }
+
+        &__title {
+            font-size: 14px;
+        }
+
+        &__amount {
+            font-size: 14px;
+            color: $moderate-cyan;
+            font-weight: $med;
+            margin-left: 20px;
+        }
+
+        &__left {
+            margin-right: 20px;
+
+            .number-left {
+                color: black;
+                font-size: 20px;
+                font-weight: $bold;
+                
+            }
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: $med;
+            color: $dark-gray;
+        }
+    }
+
+    .backproj-secondline {
+        margin: 0 20px 30px 60px;
+        font-size: 14px;
+        color: $dark-gray;
+        line-height: 25px;
+    }
+
+    #pledge0-toggle {
+        display: none;
+    }
+
+    #pledge25-toggle {
+        display: none;
+    }
+    
+    #pledge75-toggle {
+        display: none;
+    }
+
+    #pledge200-toggle {
+        display: none;
+    }
+
+
+        .backproj-thirdline {
+            border-top: 1px solid rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 30px;
+
+            
+        
+        p {
+            font-size: 14px;
+            color: $dark-gray;
+        }
+
+        .input-field {
+        
+            p {
+                position: absolute;
+                transform: translate(14px, 12px);
+                opacity: 0.35;
+                font-size: 12px;
+                font-weight: $bold;
+            }
+
+            &__input {
+                cursor: pointer;
+                height: 40px;
+                width: 80px;
+                border-radius: 50px;
+                outline: none;
+                padding-left: 25px;
+                border: 1px solid rgba(0,0,0,0.5);
+                font-weight: $bold;
+            }
+         }
+
+         .pledge0-btn {
+            @include button;
+            width: 90px;
+            height: 40px;
+            font-size: 12px;
+            transform: translateX(425px);
+
+            &:active {
+                transform: translateX(425px);
+            }
+         }
+
+        #backproj-button {
+                @include button;
+                width: 90px;
+                height: 40px;
+                font-size: 12px;
+                margin-left: 10px;
+        }
+    }
+}
+
+.thankyou-modal {
+    display: none;
+    @include modal-box;
+    width: 450px;
+    @include modal-open;
+    
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &__checkmark {
+            padding: 40px;
+        }
+
+        &__headline {
+            font-size: 20px;
+            font-weight: $bold;
+        }
+
+        &__text {
+            padding: 20px 30px;
+            text-align: center;
+            color: $dark-gray;
+            font-size: 14px;
+            line-height: 25px;    
+        }
+
+        .button {
+            padding: 10px 0 40px 0;
+        }
+
+        &__button {
+            @include button;
+            width: 120px;
+        }
+    }
+
+
+}
+
+.backproj-modal {
+    display: none;
+    @include modal-box;
+    width: 40rem;
+    padding: 40px 30px;
+    @include modal-open;
+
+    .first-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .close {
+            font-size: 30px;
+            background: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transform: translateY(-20px);
+        }
+    
+    }
+
+    &__title {
+        font-size: 18px;
+    }
+
+    &__text {
+        color: $dark-gray;
+        font-size: 14px;
+        margin: 20px 0 30px 0;
+    }
+
+    &__box {
+        border: 1px solid rgba(0,0,0,0.5);
+        //border: 2px solid $moderate-cyan;
+        border-radius: 8px;
+        margin: 15px 0;
+        cursor: pointer;
+
+        &:hover {
+            color: $moderate-cyan;
+        }
+    }
+
+    .backproj-firstline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__toggle {
+            margin: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            border: 1.25px solid rgba(0,0,0,0.20);
+            outline: none;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+                display: none;
+                content: "";
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                position: absolute;
+                transform: translate(-5px, -5px);
+                background-color: $moderate-cyan;
+            }
+        }
+
+        &__title {
+            font-size: 14px;
+        }
+
+        &__amount {
+            font-size: 14px;
+            color: $moderate-cyan;
+            font-weight: $med;
+            margin-left: 20px;
+        }
+
+        &__left {
+            margin-right: 20px;
+
+            .number-left {
+                color: black;
+                font-size: 20px;
+                font-weight: $bold;
+                
+            }
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: $med;
+            color: $dark-gray;
+        }
+    }
+
+    .backproj-secondline {
+        margin: 0 20px 30px 60px;
+        font-size: 14px;
+        color: $dark-gray;
+        line-height: 25px;
+    }
+
+    #pledge0-toggle {
+        display: none;
+    }
+
+    #pledge25-toggle {
+        display: none;
+    }
+    
+    #pledge75-toggle {
+        display: none;
+    }
+
+    #pledge200-toggle {
+        display: none;
+    }
+    
+        .backproj-thirdline {
+            border-top: 1px solid rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 30px;
+        
+        p {
+            font-size: 14px;
+            color: $dark-gray;
+        }
+
+        .input-field {
+            p {
+                position: absolute;
+                transform: translate(14px, 12px);
+                opacity: 0.35;
+                font-size: 12px;
+                font-weight: $bold;
+            }
+
+            &__input {
+                cursor: text;
+                height: 40px;
+                width: 80px;
+                border-radius: 50px;
+                outline: none;
+                padding-left: 25px;
+                border: 1px solid rgba(0,0,0,0.5);
+                font-weight: $bold;
+            }
+         }
+
+         .pledge0-btn {
+            @include button;
+            width: 90px;
+            height: 40px;
+            font-size: 12px;
+            transform: translateX(425px);
+
+            &:active {
+                transform: translateX(425px);
+            }
+         }
+
+        .backproj-button {
+                @include button;
+                width: 90px;
+                height: 40px;
+                font-size: 12px;
+                margin-left: 10px;
+        }
+    }
+}
